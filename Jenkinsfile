@@ -1,16 +1,13 @@
 pipeline {
-    agent any
+    agent{
+        docker{
+            image "amazon/aws-cli:latest"
+            args "--entrypoint=''"
+        }        
+    }
 
     stages {
         stage('Build') {
-
-            agent{
-                docker{
-                    image "amazon/aws-cli:latest"
-                    args "--entrypoint=''"
-                }
-            }
-
             environment{
                 AWS_DEFAULT_REGION='ap-south-1'
             }
