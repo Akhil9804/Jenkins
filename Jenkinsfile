@@ -19,7 +19,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'AWS-ACCESS-KEY', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
                     sh '''
                         aws s3api create-bucket \
-                        --bucket my-bucket \
+                        --bucket aws-bucket-0535 \
                         --region $AWS_DEFAULT_REGION
                         aws s3 ls
                     '''
